@@ -11,6 +11,7 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 root.render(
     <>
         <Canvas
+            className="r3f"
             shadows
             camera={ {
                 fov: 45,

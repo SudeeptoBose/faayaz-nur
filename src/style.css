@@ -10,6 +10,11 @@ body,
     background: ivory;
 }
 
+.r3f
+{
+    touch-action: none;
+}
+
 .iframeScreen iframe
 {
     width: 153.125rem;
