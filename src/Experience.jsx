@@ -51,8 +51,6 @@ export default function Experience()
 
         <ambientLight intensity={0.5 } />
 
-        {/* <Sky sunPosition={ [2.0, 1.2, 3.0] } /> */}
-
         <mesh receiveShadow position-y={ -2 } rotation-x={ - Math.PI * 0.5 } scale={ 200 } >
             <planeGeometry />
             <MeshReflectorMaterial 
@@ -63,22 +61,6 @@ export default function Experience()
 
             />
         </mesh>
-        
-        {/* <Float 
-            speed={6}
-            floatIntensity={2}
-        >
-            <Text 
-            font='/Bangers-Regular.ttf'
-                fontSize={0.75}
-                maxWidth={1}
-                position={[0, 1.75, 1]}
-                rotation={[0,Math.PI/4,0]}
-                color='#217474' 
-                > Shuvro Sarkar 
-                
-            </Text>
-        </Float> */}
 
         <Model position-y ={ -2 }/>
 

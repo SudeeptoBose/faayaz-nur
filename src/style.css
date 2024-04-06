@@ -9,3 +9,9 @@ body,
     height: 100%;
     background: ivory;
 }
+
+.iframeScreen iframe
+{
+    width: 153.125rem;
+    height: 61.875rem;
+}
