@@ -36,7 +36,7 @@ export function Model(props) {
 
 
 	const {iframeScreenPosition} = useControls('screenPosition', {
-		iframeScreenPosition : {value: [2.547, 1.56, -2.258]}
+		iframeScreenPosition : {value: [2.547, 1.56, -2.26]}
 	})
 
 	const {distanceFactorValue} = useControls('distanceFactor', {
@@ -153,7 +153,7 @@ export function Model(props) {
 					castShadow
 					receiveShadow
 					geometry={nodes.screen.geometry}
-					material={newMaterial}
+					material={newMaterial2}
 					position={[-2.461, 0.755, -2.258]}
 				/>
 				<mesh
@@ -161,7 +161,7 @@ export function Model(props) {
 					castShadow
 					receiveShadow
 					geometry={nodes.screen001.geometry}
-					material={newMaterial2}
+					material={newMaterial3}
 					position={[2.547, 2.468, -2.258]}
 					scale={0.665}
 				/>
@@ -170,7 +170,7 @@ export function Model(props) {
 					castShadow
 					receiveShadow
 					geometry={nodes.screen002.geometry}
-					material={newMaterial3}
+					material={newMaterial}
 					position={[2.547, 0.755, -2.258]}
 					scale={0.665}
 				/>
