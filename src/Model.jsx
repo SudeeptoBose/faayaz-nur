@@ -36,7 +36,7 @@ export function Model(props) {
 
 
 	const {iframeScreenPosition} = useControls('screenPosition', {
-		iframeScreenPosition : {value: [2.547, 0.755, -2.2]}
+		iframeScreenPosition : {value: [2.547, 1.55, -2.24]}
 	})
 
 	const {distanceFactorValue} = useControls('distanceFactor', {
