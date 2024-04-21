@@ -1,8 +1,9 @@
 
 import React, { useEffect, useRef } from 'react'
-import { Html, useGLTF, useAnimations, useVideoTexture, Float } from '@react-three/drei'
+import { useGLTF, useAnimations, useVideoTexture } from '@react-three/drei'
 import *  as THREE from 'three'
-import { Leva, useControls } from 'leva'
+import { useFrame, useThree } from '@react-three/fiber'
+import { easing } from 'maath'
 
 export function Model(props) {
 	const group = useRef()
@@ -33,11 +34,29 @@ export function Model(props) {
 		getAnimation.play()
 	},[])
 	
+
+	const {camera} = useThree() 
+	const newLookAtPosition = {
+		x:0,
+		y:0,
+		z:0
+	}
 	const selectObject = (e) =>
 	{
 		e.stopPropagation()
-		console.log(e.object.name)
+
+		console.log(e.object.position, e.object.name)
+		console.log(newLookAtPosition)
+		newLookAtPosition.x = e.object.position.x
+		newLookAtPosition.y = e.object.position.y
+		newLookAtPosition.z = e.object.position.z
+		console.log(newLookAtPosition)
 	}
+
+	useFrame((state, delta)=>{
+		// easing.damp3(state.camera.position, [-1 + (state.pointer.x * state.viewport.width) / 3, (1 + state.pointer.y) / 2, 5.5], 0.5, delta)
+		state.camera.lookAt(newLookAtPosition.x, newLookAtPosition.y, newLookAtPosition.z)
+	})
 	return (
 		<group ref={group} {...props} dispose={null}>
 		<group name="Scene">
