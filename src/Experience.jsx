@@ -26,7 +26,7 @@ export default function Experience()
 
     return <>
         <Perf position='top-left' />
-        <Environment preset='night' background blur={1}/>
+        {/* <Environment preset='night' background blur={1}/> */}
 
         <BakeShadows/>
         
@@ -39,7 +39,6 @@ export default function Experience()
             castShadow
             position={ [ 3, 8, 4 ] }
             intensity={ 4.5 }
-            color='#8bc8d3'
             shadow-camera-far= {50}
             shadow-camera-top= {10}
             shadow-camera-right= {10}

@@ -32,6 +32,8 @@ root.render(
                 position: [ 4, 1, 8 ]
             }}
         >
+            <color attach="background" args={['#191920']} />
+            <fog attach="fog" args={['#191920', 10, 15]} />
             <Suspense fallback={null}>
                 <Experience />
             </Suspense>
