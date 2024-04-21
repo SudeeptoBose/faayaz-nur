@@ -1,11 +1,23 @@
 import './style.css'
 import ReactDOM from 'react-dom/client'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import Experience from './Experience.jsx'
 import { Suspense } from 'react'
-import { Loader, PositionalAudio} from '@react-three/drei'
+import { Loader} from '@react-three/drei'
+import { easing } from 'maath'
+
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
+
+const CameraRig = () =>
+{
+    useFrame((state, delta)=>{
+        easing.damp3(state.camera.position, [-1 + (state.pointer.x * state.viewport.width) / 3, (1 + state.pointer.y) / 2, 5.5], 0.5, delta)
+        state.camera.lookAt(0, 0, 0)
+    })
+    console.log('Camera rig')
+}
+
 
 
 root.render(
@@ -23,6 +35,7 @@ root.render(
             <Suspense fallback={null}>
                 <Experience />
             </Suspense>
+            <CameraRig/>
         </Canvas>
         <Loader/>
     </>

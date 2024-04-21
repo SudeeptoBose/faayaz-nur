@@ -30,10 +30,10 @@ export default function Experience()
 
         <BakeShadows/>
         
-        <OrbitControls 
+        {/* <OrbitControls 
             makeDefault
             enableDamping={true}
-        />
+        /> */}
 
         <directionalLight 
             castShadow
