@@ -32,7 +32,11 @@ export default function Experience()
         
         {/* <OrbitControls 
             makeDefault
+            enablePan={false}
             enableDamping={true}
+            enableZoom={false}
+            maxPolarAngle={Math.PI/2}
+            mixAzimuthAngle={0.5}
         /> */}
 
         <directionalLight 

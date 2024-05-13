@@ -7,6 +7,7 @@ import { Loader} from '@react-three/drei'
 import { easing } from 'maath'
 import Overlay from './component/Overlay.jsx'
 import gsap from 'gsap'
+import { duration } from '@mui/material'
 
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
@@ -31,13 +32,11 @@ const CameraRig = () =>
         timelineRef.current = gsap.timeline()
 
         // Vertical animation
-        timelineRef.current.to(
+        timelineRef.current.from(
             camera.position,
             {
-                duration:5,
-                y: 40,
-                x:30,
-                z:-7
+                duration:2,
+                y: 10,
             },
             0
         )
