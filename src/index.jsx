@@ -1,24 +1,48 @@
 import './style.css'
 import ReactDOM from 'react-dom/client'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import Experience from './Experience.jsx'
-import { Suspense } from 'react'
+import { Suspense, useRef, useLayoutEffect } from 'react'
 import { Loader} from '@react-three/drei'
 import { easing } from 'maath'
 import Overlay from './component/Overlay.jsx'
+import gsap from 'gsap'
 
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 const CameraRig = () =>
 {
+
+    const cameraRef = useRef()
+    const timelineRef = useRef()
+
+    const currentState = useThree()
+    const camera = currentState.camera
+    // console.log(camera )
+
     useFrame((state, delta)=>{
         easing.damp3(state.camera.position, [-1 + (state.pointer.x * state.viewport.width) / 3, (1 + state.pointer.y) / 2, 5.5], 0.5, delta)
         state.camera.lookAt(0, 0, 0)
+        timelineRef.current.seek(timelineRef.current.duration())
     })
-    console.log('Camera rig')
-}
 
+    useLayoutEffect(()=>{
+        timelineRef.current = gsap.timeline()
+
+        // Vertical animation
+        timelineRef.current.to(
+            camera.position,
+            {
+                duration:5,
+                y: 40,
+                x:30,
+                z:-7
+            },
+            0
+        )
+    }, [])
+}
 
 
 root.render(
