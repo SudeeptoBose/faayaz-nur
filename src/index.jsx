@@ -5,6 +5,7 @@ import Experience from './Experience.jsx'
 import { Suspense } from 'react'
 import { Loader} from '@react-three/drei'
 import { easing } from 'maath'
+import Overlay from './component/Overlay.jsx'
 
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
@@ -39,6 +40,7 @@ root.render(
             </Suspense>
             <CameraRig/>
         </Canvas>
+        <Overlay/>
         <Loader/>
     </>
 )
